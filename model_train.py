@@ -12,9 +12,10 @@ df = pd.read_csv("complaint_csv.csv")
 df['description'] = df['description'].astype(str)
 
 # Load the embedding model
-
-model = SentenceTransformer('multi-qa-mpnet-base-cos-v1')
+# model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+# model = SentenceTransformer('multi-qa-mpnet-base-cos-v1')
 # model = SentenceTransformer('paraphrase-MiniLM-L3-v2')
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
 # Generate and save description embeddings
 embeddings = model.encode(df['description'].tolist(), convert_to_numpy=True)
